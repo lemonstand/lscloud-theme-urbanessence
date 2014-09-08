@@ -40,8 +40,15 @@ $(window).load(function() {
 });
 //SEARCH ITEM
   $(document).on('click', '#search-item', function() {
-    $('.search-bar').toggleClass("active-search");
+      $('.search-bar').toggleClass("active-search");  
   });
+  $(document).on('click', '#normal-carts', function() {
+    if( $('.search-bar').hasClass("active-search") ){
+      $('.search-bar').removeClass("active-search");
+    }else{
+      return;
+    }
+  })
 
 //===============
 //! AJAX / Cart    

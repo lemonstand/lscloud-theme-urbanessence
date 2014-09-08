@@ -534,7 +534,7 @@ select {
 .search-bar{
   padding-top:0px;
   width:240px;
-  opacity:0;
+  opacity:1;
   display:none;
   position:absolute;
   left:0;

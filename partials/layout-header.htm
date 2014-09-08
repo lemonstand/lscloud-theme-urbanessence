@@ -42,7 +42,7 @@
           {% endif %}
         </li>
         <li id="normal-cart">
-          <a href="{{ site_url('cart') }}" data-toggle="dropdown"> <i class="fa fa-shopping-cart"></i>  {{ partial('shop-minicart-totals') }}</a>
+          <a id="normal-carts" href="{{ site_url('cart') }}" data-toggle="dropdown"> <i class="fa fa-shopping-cart"></i>  {{ partial('shop-minicart-totals') }}</a>
           <div id="mini-cart" class="dropdown-menu">
             {{ partial('shop-minicart', {'edit_cart': true}) }}
           </div>
