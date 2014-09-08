@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <a class="navbar-brand" href="{{ site_url('/') }}"><img src="{{ theme.logoImage.thumbnail('auto','auto') }}" alt=""></a>
+      <ul class="nav navbar-nav">
+        <li><a href="{{ site_url('/') }}">HOME</a></li>
+        <li><a href="{{ site_url('about') }}">ABOUT</a></li>
+        <li><a href="{{ site_url('shop') }}">SHOP</a></li>
+      </ul>
+
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li id="search-button">
+          <a id="search-item"><i class="fa fa-search"></i> Search</a>
+                <!-- Search Bar -->
+          {{ open_form({'role': 'form', 'method': 'get', 'action': site_url('search')}) }}               
+            <div class="search-bar">
+              <input type="text" class="search-form form-control" name="query" id="query" placeholder="Find a product" autocomplete="off" value="{{query|unescape}}"><button class="btn btn-default toggle hidden-xs hidden-sm" type="submit"><i class="fa fa-angle-right fa-lg"></i></button>
+            </div><!-- /input-group -->
+          {{ close_form() }}
+        </li>
+        <li>        
+          {% if customer %}
+            <p>Welcome, {{ customer.first_name }}!             <a href="{{ site_url('logout') }}"><i class="fa fa-lock"></i> Logout</a></p>
+
+          {% else %}
+            <a href="{{ site_url('login') }}"><i class="fa fa-lock"></i> Login</a>
+          {% endif %}
+        </li>
+        <li id="normal-cart">
+          <a href="{{ site_url('cart') }}" data-toggle="dropdown"> <i class="fa fa-shopping-cart"></i>  {{ partial('shop-minicart-totals') }}</a>
+          <div id="mini-cart" class="dropdown-menu">
+            {{ partial('shop-minicart', {'edit_cart': true}) }}
+          </div>
+        </li>
+        <li id="mobile-cart">
+          <a href="{{ site_url('cart') }}"><i class="fa fa-shopping-cart"></i></a>
+        </li>
+
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+

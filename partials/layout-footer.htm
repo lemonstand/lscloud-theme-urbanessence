@@ -1,0 +1,57 @@
+{{ code_block('setup') }}
+
+    
+    <div class="jumbotron" id="sub-footer">
+        <div class="content">
+            <div class="col-md-4">
+                <a href="#"><i class="fa fa-envelope-o"></i>  HELP@UE.COM</a>
+            </div>
+            <div class="col-md-4">
+                <a href="#"><i class="fa fa-mobile fa-lg"></i>   888.129.9993</a>
+            </div>
+            <div class="col-md-4" id="social-icons">
+                <a href="{{ theme.socialFacebookUrl}}" target="_blank"><i class="fa fa-facebook fa-lg"></i>&nbsp; </a> 
+                <a href="{{ theme.socialTwitterUrl }}" target="_blank"><i class="fa fa-twitter fa-lg"></i>&nbsp; </a> 
+                <a href="{{ theme.socialInstagramUrl }}" target="_blank"><i class="fa fa-instagram fa-lg"></i>&nbsp; </a> 
+                <a href="{{ theme.socialTumblrUrl }}" target="_blank"><i class="fa fa-tumblr fa-lg"></i>&nbsp; </a> 
+            </div>
+        </div>  
+    </div>
+
+    
+    <div class="jumbotron" id="main-footer">
+        <div class="row content">
+            <div class="col-xs-12 col-sm-6 col-md-8">
+                
+            {% tree categories %}
+                <ul class="list-unstyled col-md-4">
+                    <li class="title">SHOP</li>
+                    <a href="{{ site_url('shop') }}"><li>All</li></a>
+                {% for category in tree.items %}
+                    <a href="/category/{{ category.fullUrlName }}"><li>{{ category.name }}</li></a>
+                {% endfor %}
+                </ul>
+            {% endtree %}
+
+                
+                <ul class="list-unstyled col-md-4">
+                    <li class="title">SERVICE</li>
+                    <a href="{{ site_url('login') }}"><li>Login</li></a>
+                    <a href="{{ site_url('contact') }}"><li>Contact</li></a>
+                </ul>
+
+                
+                <ul class="list-unstyled col-md-4">
+                    <li class="title">URBAN ESSENCE</li>
+                    <a href="{{ site_url('about') }}"><li>About</li></a>
+                    <a href="#"><li>Newsletter</li></a>
+                    <a href="#">Privacy and Terms</a>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-md-4" id="foot-info">
+                <p>This is Urban Essence Free Theme <br>
+                    Powered by <a href="https://lemonstand.com/" target="_blank">LemonStand</a><br>
+                </p>
+            </div>
+        </div>
+    </div>

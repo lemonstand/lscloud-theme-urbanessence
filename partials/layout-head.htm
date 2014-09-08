@@ -1,0 +1,61 @@
+{{ code_block('setup') }}
+
+	<!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>{{ page.title }}</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="Description" content="{{ page.description }}"/>
+	<meta name="Keywords" content="{{ page.keywords }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
+    <link rel="icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
+    
+    <link rel="stylesheet" type="text/css" href="/cms/core.css">
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{'css/main.css'|theme_resource}}">
+    <link rel="stylesheet" href="{{'css/mobile.css'|theme_resource}}">
+
+    <!-- THEME CUSTOMiZATION OPTIONS -->
+    <style type="text/css">
+        body{
+            color:{{ theme.bodyTextColor }}
+        }
+        .navbar-default .navbar-nav > li > a{
+            color: {{ theme.navbarLinkColor }};
+        }
+        .navbar{
+            background: {{ theme.navbarBackgroundColor }};
+        }
+        .subfooter{
+            background: {{ theme.subFooterColor }};
+        }
+        .main-footer{
+            background: {{ theme.mainFooterColor }};
+        }
+        .btn-default{
+            border-color: {{ theme.defaultButtonBorderColor }} ;
+        }
+        .btn-default:hover{
+            background:{{ theme.defaultButtonHoverColor }}
+        }
+        .btn-important{
+            background: {{ theme.importantButtonColor }};
+        }
+        .brn-important:hover{
+            background:{{ theme.importantButtonHoverColor }};
+        }
+        i{
+            color: {{ theme.iconColor }};
+        }
+        .intro{
+            background:url({{ theme.introMainImage.thumbnail('auto','auto') }})no-repeat top center;
+        }
+    </style>
+    

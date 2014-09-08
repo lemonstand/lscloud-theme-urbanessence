@@ -1,0 +1,55 @@
+---
+action: 'shop:login'
+template: template-1
+protocol: all
+published: true
+name: Checkout
+url: /checkout-start
+---
+<div class="row content">
+	<div class="sign-in-holder">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+					<h3>Returning Customers</h3>
+				{{ open_form({'data-ajax-handler': 'shop:onLogin', 'data-validation-message' : '', 'class' : 'form-horizontal' }) }}
+
+                <div class="form-group">
+                    <label for="login_email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control input-sm" id="login_email" name="email" value="{{ post('email') }}" size="40" autofocus />
+                        <span class="error small text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="login_password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control input-sm" id="login_password" name="password" size="20" />
+                        <span class="error small text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="submit" class="btn btn-sm btn-dark">Login</button>
+                        <a class="btn btn-sm btn-link forgotpass" href="{{ site_url('password-restore') }}">Forgot your password?</a>
+                    </div>
+                </div>
+                
+                <input type="hidden" name="redirect" value="{{ site_url(root_url('/cart')) }}"/>
+      
+            {{ close_form() }}
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<form class="form-guest-checkout">
+					<h3>Guest Checkout</h3>
+					<p>
+						Checkout without logging in or registering an account.
+					</p>
+					<br>
+					<a class="md-button narrow" href="{{ site_url('checkout') }}">Continue as a Guest</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

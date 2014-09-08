@@ -1,0 +1,6 @@
+{% set active_cat = category.id %}
+{% tree categories %}
+	{% for category in tree.items %}
+		<a href="/category/{{ category.fullUrlName }}" class="btn btn-default {{ category.id == active_cat ? 'active' : null }}"><p>{{ category.name }}</p></a>
+	{% endfor %}
+{% endtree %}
