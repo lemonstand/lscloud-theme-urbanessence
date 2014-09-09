@@ -1,4 +1,4 @@
-{% set items_per_page = post('items_per_page')|default(12) %}
+{% set items_per_page = post('items_per_page')|default(15) %}
 {% paginate products by items_per_page %}
   {% for product in pagination.items %}
   <div class="col-md-4 shop-item">
