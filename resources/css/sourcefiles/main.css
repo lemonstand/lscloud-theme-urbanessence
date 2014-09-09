@@ -9,6 +9,10 @@ body{
 .previous-price{
   text-decoration: line-through;
 }
+#guest-button{
+  background:rgb(192, 192, 192);
+  color:rgb(108, 122, 137);
+}
 
 .jumbotron{
   margin-bottom:0px;

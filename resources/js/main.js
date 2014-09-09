@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 //PAY
 //Payment forms LEMONSTAND
   $(document).on('change', '#payment_method input', function() {
@@ -11,33 +13,78 @@
         
 
 //ADDRESS
-  $('#check-box').css('visibility', 'hidden');
-  $(document).on('click', '.btn-form-mirror', function() {
-    if ($(this).data('toggle-mirror') == 'on') {
-      $(this).data('toggle-mirror', 'off').find('.fa').css('visibility', 'visible');
-      sessionStorage.toggleMirror = 'off';
-    } else {
-      $(this).data('toggle-mirror', 'on').find('.fa').css('visibility', 'hidden');
-      sessionStorage.toggleMirror = 'on';
-      mirrorAll();
+    $(document).on('click', '.btn-form-mirror', function() {
+      if ($(this).data('toggle-mirror') == 'on') {
+        $(this).data('toggle-mirror', 'off').find('.fa').css('visibility', 'hidden');
+        sessionStorage.toggleMirror = 'off';
+      } else {
+        $(this).data('toggle-mirror', 'on').find('.fa').css('visibility', 'visible');
+        sessionStorage.toggleMirror = 'on';
+        mirrorAll();
+      }
+    });
+    
+    // mirror toggle button
+    $(window).on('onAjaxAfterUpdate', function() {
+      if ($('.btn-form-mirror').length && sessionStorage.toggleMirror == 'off') {
+        $('.btn-form-mirror').data('toggle-mirror', 'off').find('.fa').css('visibility', 'hidden');
+        $('#shipping-info').addClass('in');
+      }
+    });
+    
+    //mirror source and destination fields
+    function mirrorFields($mirrorSource, $mirrorTarget, event) {
+      $($mirrorSource).each(function(idx) {
+        $(this).on(event, function() {  
+            var mirrorVal = $(this).val();
+            if ($('.btn-form-mirror').data('toggle-mirror') == 'on') {
+            $($mirrorTarget + ':eq('+idx+')').val(mirrorVal);     
+            }
+        });     
+      }); 
     }
-  });
+    
+    mirrorFields('#billing-info [data-mirror]', '#shipping-info [data-mirror]', 'keyup keypress blur change');
+    //mirrorFields('#billing-info select[data-mirror]', '#shipping-info select[data-mirror]', 'change');
+    
+    //mirror all fields
+    function mirrorAll() {
+      $('#billing-info [data-mirror]').each(function(idx) {
+          var mirrorVal = $(this).val();
+        $('#shipping-info [data-mirror]:eq('+idx+')').val(mirrorVal);     
+      }); 
+      //trigger change to update the state list
+      $('#shipping_country[data-mirror]').trigger('change');
+    }
+    $(window).load(function() {
+      if ($('.btn-form-mirror').data('toggle-mirror') == 'on') {
+        mirrorAll();
+      }
+    });
+    
+    //country select
+    var tracker = false;
+    
+    $('#billing_country[data-mirror]').on('change', function() {
+      if ($('.btn-form-mirror').data('toggle-mirror') == 'on') {
+         tracker = true;
+        }
+    });
+    //update shipping only once
+    $(window).on('onAfterAjaxUpdate', function(){
+      if (tracker == true) {
+        $('#shipping_country[data-mirror]').change();
+        console.log('ajax done');
+        tracker = false;
+      }
+      
+      //force the shiping state to update if it's value is different ie. after a page refresh
+      if ($('#shipping_state[data-mirror]').val() != $('#billing_state[data-mirror]').val()) {
+        $('#shipping_state[data-mirror]').val($('#billing_state[data-mirror]').val());
+      }
+    });
 
 
-//mirror all fields
-function mirrorAll() {
-  $('#billing-info [data-mirror]').each(function(idx) {
-      var mirrorVal = $(this).val();
-    $('#shipping-info [data-mirror]:eq('+idx+')').val(mirrorVal);     
-  }); 
-  //trigger change to update the state list
-  $('#shipping_country[data-mirror]').trigger('change');
-}
-$(window).load(function() {
-  if ($('.btn-form-mirror').data('toggle-mirror') == 'on') {
-    mirrorAll();
-  }
-});
 //SEARCH ITEM
   $(document).on('click', '#search-item', function() {
       $('.search-bar').toggleClass("active-search");  
@@ -48,7 +95,7 @@ $(window).load(function() {
     }else{
       return;
     }
-  })
+  });
 
 //===============
 //! AJAX / Cart    
@@ -90,12 +137,11 @@ $(document).ajaxComplete(function() {
 if ('#checkout-page') {
 
        if ($('.credit-card-input').length) {
-        $('.credit-card-input').validateCreditCard(function(result) {
-            if (result.length_valid === true) {
-                $('.credit-card-input').find('label')
-                  .html(result.card_type.name).append(' <i class="fa fa-check-circle" />')
-                  .parent().removeClass('invalid').addClass('valid');
-                
+              $('.credit-card-input').validateCreditCard(function(result) {
+                  if (result.length_valid === true) {
+                      $('.credit-card-input').next('label')
+                        .html(result.card_type.name).append(' <i class="fa fa-check-circle" />')
+                        .parent().removeClass('invalid').addClass('valid');
             } else {
                 $('.credit-card-input').keyup(function() {
                     var card = $('.credit-card-input').val();
@@ -145,4 +191,4 @@ if ('#checkout-page') {
   });
 }
 });
-
+});

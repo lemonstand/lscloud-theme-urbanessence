@@ -15,6 +15,10 @@ body{
   line-height:1;
   background:white;
 }
+#guest-button{
+  background:rgb(192, 192, 192);
+  color:rgb(108, 122, 137);
+}
 
 i{
   padding-right:0px;
