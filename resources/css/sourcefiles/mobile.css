@@ -1,3 +1,77 @@
+
+@media screen and (max-width: 868px) {
+/*============================================
+        SHOP PAGE
+=============================================*/
+.shop-item{
+  margin-bottom:100px;
+  width:50%;
+  float:left;
+}
+.shop-item img{
+  width:100%;
+}
+.item-detail{
+  background:rgba(255,255,255,0.8);
+  color:black;
+  position:absolute;
+  width:100%;
+  height:100px;
+  padding:0;
+  top:100%;
+
+  left:0;
+  text-align: center;
+  opacity:1;
+}
+.item-detail h2{
+  padding-top:0px;
+  font-size:1em;
+}
+/*============================================
+     INDEX PAGE = FEATURED
+=============================================*/
+.feature-item{
+  margin-bottom:110px;
+}
+#feature .item-detail{
+  opacity:1;
+  pointer-events:none;
+  display:block;
+}
+#foot-info p{
+  text-align: left;
+}
+#sub-footer .content div{
+  margin-bottom:10px;
+}
+.search-bar{
+  width:100%;
+  opacity:0;
+  position:relative;
+  text-align: center;
+  top:10px;
+  margin:0 auto;
+  z-index:999999;
+  pointer-events:none;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  padding-bottom:10px;
+  margin-top:20px;
+  opacity:1;
+  display:block;
+  pointer-events:auto;
+}
+#mobile-cart{
+  padding-bottom:20px;
+  vertical-align: top;
+}
+#search-item{
+  display:none;
+}
+}
+
 @media screen and (max-width: 480px) {
 
   /*============================================
@@ -150,6 +224,8 @@
 =============================================*/
 .shop-item{
   margin-bottom:100px;
+    width:100%;
+  display:block;
 }
 .shop-item img{
   width:100%;
@@ -174,10 +250,13 @@
 /*============================================
      INDEX PAGE = FEATURED
 =============================================*/
+.feature-item{
+  margin-bottom:110px;
+}
 #feature .item-detail{
-  opacity:0;
-  display:none;
+  opacity:1;
   pointer-events:none;
+  display:block;
 }
 
 /*============================================
@@ -331,11 +410,11 @@ select {
 }
 
 .search-bar{
-  padding-top:8px;
   width:100%;
   opacity:0;
   position:relative;
   text-align: center;
+  top:10px;
   margin:0 auto;
   z-index:999999;
   pointer-events:none;
@@ -348,19 +427,11 @@ select {
   display:block;
   pointer-events:auto;
 }
-
+#mobile-cart{
+  padding-bottom:20px;
+  vertical-align: top;
+}
 #search-item{
   display:none;
 }
-
-
-
-
-
-
-
-
-
-
-
 }
