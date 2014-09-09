@@ -43,11 +43,9 @@ url: /checkout-start
 			<div class="col-xs-12 col-sm-6">
 				<form class="form-guest-checkout">
 					<h3>Guest Checkout</h3>
-					<p>
-						Checkout without logging in or registering an account.
-					</p>
 					<br>
-					<a class="md-button narrow" href="{{ site_url('checkout') }}">Continue as a Guest</a>
+					<a href="{{ site_url('checkout') }}"><span id="guest-button" class="btn btn-sm">Continue as a Guest</span></a>
+                    <a class="btn btn-sm btn-link" href="{{ site_url('login') }}"> Register</a>
 				</form>
 			</div>
 		</div>

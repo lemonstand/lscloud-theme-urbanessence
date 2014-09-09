@@ -5,10 +5,6 @@ UrbanEssence
 
 Created by: [Daniel Park](http://dparkd.com) ([@D_Hanul_Park](https://twitter.com/D_Hanul_Park))
 
-This work is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License
-http://creativecommons.org/licenses/by-nd/4.0/
-
-
 ### Overview
 
 UrbanEssence is a theme that can be fully customizable. Use it as a base to create your beautiful and minimal store UrbanEssence is built with [Bootstrap](http://getbootstrap.com/). 

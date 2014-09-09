@@ -18,9 +18,8 @@
     
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{'css/main.css'|theme_resource}}">
-    <link rel="stylesheet" href="{{'css/mobile.css'|theme_resource}}">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{'css/combined.min.css'|theme_resource }}">
 
     <!-- THEME CUSTOMiZATION OPTIONS -->
     <style type="text/css">
@@ -55,7 +54,7 @@
             color: {{ theme.iconColor }};
         }
         .intro{
-            background:url({{ theme.introMainImage.thumbnail('auto','auto') }})no-repeat top center;
+            background: url( {{ theme.introMainImage.thumbnail('auto','auto') }} )no-repeat top center;
         }
     </style>
     
