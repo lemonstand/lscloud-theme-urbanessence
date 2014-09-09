@@ -13,7 +13,7 @@
   </div>
 </div>
 {% for shipment in invoice.shipments %}
-    {% for item in shipment.shipmentItems %}
+  {% for item in shipment.shipmentItems %}
     {{ partial('shop-purchased-items', {'invoice': invoice, 'item': item, }) }}
   {% endfor %}
 {% endfor %}

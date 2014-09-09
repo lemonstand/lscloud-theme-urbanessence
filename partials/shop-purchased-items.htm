@@ -22,7 +22,9 @@
     </div>
     <div class="col-xs-12 col-sm-2 cart-details {{ edit_cart ? null : 'no-edit' }}">
       <div class="p quantity">
-        {{ 0|currency }}
+        {% if invoice.getDiscountTotal() > 0 %}
+          {{ item.totalDiscount() | currency }}
+        {% endif %}
         
       </div>
     </div>
