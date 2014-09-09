@@ -6,6 +6,7 @@ website: 'http://dparkd.com'
 engine: twig
 404: '404'
 customFields:
+    storeTitle: {type:text, title:'Title of your Store', default:'Urban Essence'}
     faviconImage: {type:image, title:'Favicon Image (Image you see on the chrome)', default:'@img/ue.ico'}
     navbarBackgroundColor: { type:color, title:'Global: Navbar Background Color', default:'rgba(60,68,76,1)'}
     navbarLinkColor: { type:color, title:'Global: Navbar Link Color', default:'#FFF'}
@@ -26,7 +27,7 @@ customFields:
     introMainTitle: {type:text, title:'Home: Intro header Title', default:'URBAN ESSENCE'}
     introMainTagline: {type:text, title:'Home: Intro header Tagline', default:'SHOP THE NEW COLLECTION: S/S 2014'}
     introTextTitle: { type: text, title: 'Home: Intro Text Title', default: 'Your Style Your Way' }
-    introText: { type: text, title: 'Home: Intro Text Body', default: 'Urban Essence is a free Lemonstand theme that is fully customizable. edit styles to enhance your store and to cater experience to your customers.' }
+    introText: { type: text, title: 'Home: Intro Text Body', default: 'Urban Essence is a free Lemonstand theme that is fully customizable. edit styles to enhance your store and to cater the experience to your customers.' }
     introImg: { type:image, title:'Home: Intro Image', default:'@/img/product4.jpg'}
     aboutTitleFirst: { type: text, title:'About: Title for first about box', default:'ABOUT URBAN ESSENCE'}
     aboutTextFirst: { type:text, title:'About: Text for first about box', default:'Urban Essence is a minimalistic LemonStand theme that focuses on the product. This about page is used to tell your customer more about your company.'}
