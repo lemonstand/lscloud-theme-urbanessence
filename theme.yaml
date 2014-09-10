@@ -37,7 +37,5 @@ customFields:
     aboutTitleSecond: { type:text, title:'About: Title for the second about box', default:'ABOUT THE COMPANY'}
     aboutTextSecond: { type:text, title:'About: Text for the second about box', default:'Put some information about your company. Explain to your customers why you are the best at making/selling your product.'}
     aboutImageSecond: { type:image, title:'About: About page second image', default:'@/img/about2.jpg', comment:'Suggestion: Height of image two is the same as height of image one'}
-
-    
-
+    shopItemsPerPage: { type:text, title:'Shop: Number of products displayed per page.', default:'15'}
 ---
