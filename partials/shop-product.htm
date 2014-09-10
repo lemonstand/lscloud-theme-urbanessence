@@ -1,18 +1,18 @@
 	{% set on_sale = product.onSale %}
 	<div id="product-gallery" class="col-md-8">
 
-	<ul class="col-md-3 thumblist">
-		{% for image in product.images %}
-			<li>
-				<img onclick='changeImage("{{ image.thumbnail('auto', 'auto') }}")' src="{{ image.thumbnail('auto', 'auto') }}" alt="{{ product.name }}">
-			</li>
-		{% endfor %}
-		</ul>
+		<ul class="col-md-3 thumblist">
+			{% for image in product.images %}
+				<li>
+					<img onclick='changeImage("{{ image.thumbnail('auto', 'auto') }}")' src="{{ image.thumbnail('auto', 'auto') }}" alt="{{ product.name }}">
+				</li>
+			{% endfor %}
+			</ul>
 
-		
-		<div class="col-md-9">
-			<img id="big-thumb" src="{{ product.image.thumbnail('auto','auto') }}" alt="{{ product.name }}">
-		</div>
+			
+			<div class="col-md-9" id="main-img">
+				<img id="big-thumb" src="{{ product.image.thumbnail('auto','auto') }}" alt="{{ product.name }}">
+			</div>
 
 	</div>
 
