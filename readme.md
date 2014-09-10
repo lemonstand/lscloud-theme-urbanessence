@@ -16,3 +16,6 @@ UrbanEssence is a theme that can be fully customizable. Use it as a base to crea
 - Customizable about page. 
 - Change the feel of UrbanEssence with color customization.
 - Get social with Twitter, Facebook, Instagram, and Tumblr.
+
+### Notes
+- For the product images, suggested image size = 240x350 px (Aspect ratio = 24 : 35).
