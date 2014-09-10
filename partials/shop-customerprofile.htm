@@ -85,12 +85,13 @@
   <div id="shipping-info" class="panel-collapse collapse in">
     <div class="panel-body row">
         <div class="col-xs-12  form-group">
-          <a class="btn btn-default" href="#" id="profile_billing_to_shipping"
+          <a class="btn btn-default" href="#" id="profile-billing-address"
             data-ajax-handler="shop:onUpdateCustomerProfile"
             data-ajax-update="#profile-addresses=shop-customerprofile"
             data-validation-message=""
             data-ajax-extra-fields="copy_billing_to_shipping='1'"
-            >Copy Billing Information</a>
+            ><i class="fa fa-check" id="check-box"></i></a>
+            <p>Copy Billing Information</p>
           <input type="hidden" name="shipping[id]" value="{{ shipping.id }}" />
         </div>
         
