@@ -1,6 +1,6 @@
 ---
 action: 'shop:order'
-template: inner
+template: template-1
 published: true
 name: Order
 url: '/order/:orderId'
@@ -8,20 +8,23 @@ url: '/order/:orderId'
 <section class="section-shopping-cart-page">
 	<div class="container">
 		{% if order %}
-		<div class="row">
+		<div class="row" id="no-padding">
 			<div class="col-xs-12">
 				<h1>Order number: #{{ order.id }} </h1>
 				<hr>
 			</div>
 		</div>
+
+
 		<div class="row">
-			<div class="col-md-12 col-lg-9">
+			<div class="col-xs-12 col-md-9">
 				<div class="items-holder">
 					{{ partial('shop-orderitems') }}
 				</div>
 			</div>
-			<div class="col-md-12 col-lg-3">
-				<div class="right-sidebar">
+
+			<div class="col-xs-12 col-md-3">
+				<div class="right-sidebar" id="right-sidebar">
 					{% if order.invoices[0].payments().last().guessPaymentMethod() %}
 					<p><strong>Payment method: </strong> {{ order.invoices[0].payments().last().guessPaymentMethod().name }}</p>
 					{% endif %}

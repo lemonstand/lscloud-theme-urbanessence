@@ -9,6 +9,12 @@ body{
 .previous-price{
   text-decoration: line-through;
 }
+#no-padding{
+  padding-bottom:0;
+}
+#right-sidebar{
+  padding-top:40px;
+}
 
 .jumbotron{
   margin-bottom:0px;
@@ -581,6 +587,9 @@ select {
   display:block;
 }
 
+#order-history{
+  padding-bottom:0;
+}
 
 
 

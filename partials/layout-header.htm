@@ -35,7 +35,7 @@
         </li>
         <li>        
           {% if customer %}
-            <p>Welcome, {{ customer.first_name }}!             <a href="{{ site_url('logout') }}"><i class="fa fa-lock"></i> Logout</a></p>
+            <p>Welcome, <a href="{{ site_url('profile') }}">{{ customer.first_name }}</a>!             <a href="{{ site_url('logout') }}"><i class="fa fa-lock"></i> Logout</a></p>
 
           {% else %}
             <a href="{{ site_url('login') }}"><i class="fa fa-lock"></i> Login</a>
