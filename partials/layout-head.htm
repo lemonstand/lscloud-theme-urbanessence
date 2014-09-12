@@ -54,8 +54,12 @@
         i{
             color: {{ theme.iconColor }};
         }
-        .intro{
+        #intro{
             background: url( {{ theme.introMainImage.thumbnail('auto','auto') }} )no-repeat top center;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
         }
     </style>
     

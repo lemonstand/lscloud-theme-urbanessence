@@ -23,7 +23,7 @@ customFields:
     socialTumblrUrl: { type: text, title: 'Global: Tumblr URL', default: 'http://tumblr.com' }
     subFooterColor: {type:color, title: 'Global: Subfooter Color', default:'#ECF0F1'}
     mainFooterColor: {type:color, title: 'Global: Mainfooter Color', default:'#3C444C'}
-    introMainImage: {type:image, title:'Home: Intro header image', default:'@/img/bg.jpg'}
+    introMainImage: {type:image, title:'Home: Intro header dimage', default:'@/img/bg.jpg'}
     introMainTitle: {type:text, title:'Home: Intro header Title', default:'URBAN ESSENCE'}
     introMainTagline: {type:text, title:'Home: Intro header Tagline', default:'SHOP THE NEW COLLECTION: S/S 2014'}
     introTextTitle: { type: text, title: 'Home: Intro Text Title', default: 'Your Style Your Way' }
