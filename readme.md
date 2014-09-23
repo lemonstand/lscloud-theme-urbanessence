@@ -1,7 +1,7 @@
 UrbanEssence
 =============
 
-### [UrbanEssence](https://dparkd.lemonstand.com/) is a high fashion inspired minimal theme for [LemonStand](https://lemonstand.com/).
+### [UrbanEssence](https://urbanessence.lemonstand.com/) is a high fashion inspired minimal theme for [LemonStand](https://lemonstand.com/).
 
 Created by: [Daniel Park](http://dparkd.com) ([@D_Hanul_Park](https://twitter.com/D_Hanul_Park))
 
