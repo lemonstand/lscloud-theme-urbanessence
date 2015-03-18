@@ -2,8 +2,7 @@
     <img src="{{ theme.aboutImageFirst.thumbnail('auto','auto') }}" alt="">
   </div>
   <div class="col-md-6 text">
-    <h2>{{ theme.aboutTitleFirst }}</h2><br>
-    <h4>{{ theme.aboutTextFirst }} </h4>
+    {{ content_block('about-page-top') }}
   </div>
 </div>
 <div class="row about" id="quote">
@@ -12,8 +11,7 @@
 </div>
 <div class="row about" id="">
   <div class="col-md-6 text">
-    <h2>{{ theme.aboutTitleSecond }}</h2><br>
-    <h4>{{ theme.aboutTextSecond }}</h4>
+    {{ content_block('about-page-bottom') }}
   </div>
   <div class="col-md-6 image">
     <img src="{{ theme.aboutImageSecond.thumbnail('auto','auto') }}" alt="">
