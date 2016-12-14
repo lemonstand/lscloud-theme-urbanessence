@@ -1,9 +1,12 @@
 {% if featuredCollection %}
+  {% set productCounter = 1 %}
   {% for product in featuredCollection.products %}
-    <div class="col-md-4 feature-item">
-        {{ partial('shop-grid-item', {'product':product}) }}
-    </div>
-
+    {% if productCounter < 4 %}
+        <div class="col-md-4 feature-item">
+            {{ partial('shop-grid-item-home', {'product':product}) }}
+        </div>
+        {% set productCounter = productCounter + 1 %}
+    {% endif %}
   {% endfor %}
 {% else %}
   <p class="flash success">The product collection was not found. Please create this group on the Shop/Collections page.</p>
