@@ -15,12 +15,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <a class="navbar-brand" href="{{ site_url('/') }}"><img src="{{ theme.logoImage.thumbnail('auto','auto') }}" alt=""/></a>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav user-header-menu">
         <li><a href="{{ site_url('/') }}">HOME</a></li>
-        <li><a href="{{ site_url('about') }}">ABOUT</a></li>
+        <!--<li><a href="{{ site_url('about') }}">ABOUT</a></li>-->
         <li><a href="{{ site_url('shop') }}">SHOP</a></li>
+        {{ widget_block("header-menu") }}
+
       </ul>
 
+      
 
 
       <ul class="nav navbar-nav navbar-right">

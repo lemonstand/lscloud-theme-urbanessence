@@ -14,6 +14,17 @@
 				<img id="big-thumb" src="{{ product.image.thumbnail('auto','auto') }}" alt="{{ product.name }}">
 			</div>
 
+			{% if theme.socialToggle %}
+                              <div class="social social-links">
+                                <div id="sharrre">
+                                    <div class="facebook"></div>
+                                    <div class="twitter"></div>
+                                    <div class="googleplus"></div>
+                                    <div class="pinterest"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+
 	</div>
 
 	<div id="product-detail" class="col-md-4">
@@ -27,6 +38,7 @@
 
 		{% if product.enabled %}
       
+      {{ partial('shop-product-bulk-pricing') }}
       {{ partial('shop-product-options') }}
       {{ partial('shop-product-extras') }}
       
@@ -38,6 +50,7 @@
 	        	<h4>Quantity</h4>
 	          <input class="form-control quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>
 	        </div>
+	        <div class="stock-level">{{ product.in_stock_amount }} available</div>
 	        <a class="btn btn-important btn-add-cart" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product, #navbar-totals=shop-minicart-totals">Add to Cart </a>
 	      </div>
 	      
@@ -54,6 +67,15 @@
   {% endif %}
 
 	
+	</div>
+	<div class="row related-products">
+		<h3>Related items</h3>
+                    {% for product in product.crosssells %}
+                        {{ partial('shop-product-related-item', {'product':product}) }}
+                    {% endfor %}
+                    {% for product in product.upsells %}
+                        {{ partial('shop-product-related-item', {'product':product}) }}
+                    {% endfor %}
 	</div>
 
 

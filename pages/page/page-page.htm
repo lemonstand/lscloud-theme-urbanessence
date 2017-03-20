@@ -1,8 +1,20 @@
 ---
+action: 'cmscontent:page'
 template: template-1
 protocol: all
 published: true
 name: page
-url: /page
+url: /page/:slug
 ---
-<p>This is page</p>
+<section class="page-box">
+	<div class="row content">
+	    <div class ="col-md-4">
+	        <img src="{{ featured_image.thumbnail(150, 'auto')|default('http://placehold.it/150x365') }}" alt="{{ featured_image.alt }}"/>
+	    </div>
+	    <div class ="col-lg-8">
+	        <h1>{{post.title}}</h1>
+	        <div class="basic-page-excerpt" style="margin-bottom: 20px">{{ post.excerpt | unescape }}</div>
+	        <div class="basic-page-body">{{ post.body | unescape }}</div>
+	    </div>
+	</div>
+</section>
