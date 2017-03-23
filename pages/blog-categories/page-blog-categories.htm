@@ -4,45 +4,42 @@ template: template-1
 protocol: all
 published: true
 name: Blog Categories
-url: /blog/archives/:category
+url: /archives/:type/:category
 ---
 
-<section class="container">
+
   <div class="row content">
-    <div class="col-lg-12 col-md-12">
-      {% if archives | length > 0 %}
+    {% if archives | length > 0 %}
       {% paginate archives by 5 %}
-      {% for post in pagination.items %}
-        <h2>{{ category }}</h2>
-        <article class="{{ post.type }}">
-            <header>
+      <div class="col-md-2 cat-list">
+        {{ partial('blog-categories') }}
+      </div>
+      <div class="col-md-10">
+        <div class="row blog">
+          <h2>{{ category }}</h2>
+          {% for post in pagination.items %}
+            <div>
+              <h3><a href="/blog/{{ post.guid }}">{{ post.title }}</a></h3>
+              <div>{{ post.excerpt | unescape }}</div>
+              <div><a href="/blog/{{ post.guid }}">Read More</a></div>
+            </div>
+            <hr/>
+          {% endfor %}
 
-                <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-                <p>{{ post.published_on | date("F j, Y") }}</p>
-                <p><strong>{{ post.author_name }}</strong> in <var>{{ post.type }}</var></p>
-            </header>
-            <aside>{{ post.excerpt | unescape }}</aside>
-        </article>
-        <hr/>
-        {% endfor %}
-
-        <br><br><br>
-
-                  <div class="pagination-holder">
-                    {% navigation %}
-                  </div>
-
-        {% endpaginate %}
-        {% else %}
-          <article>
-            <header>
-                <h4>Not found</h4>
-                <p>No {{ type }} posts found in category: {{ category }} {{ categoryID }}</p>
-            </header>
-          </article>
-        {% endif %}
-
-    </div>
-
+          <div class="pagination">
+            <div class="pagination-holder">
+              {% navigation %}
+            </div>
+          </div>
+          {% endpaginate %}
+        </div>
+      </div>
+    {% else %}
+      <article>
+        <header>
+            <h4>Not found</h4>
+            <p>No {{ type }} posts found in category: {{ category }} {{ categoryID }}</p>
+        </header>
+      </article>
+    {% endif %}
   </div>
-</section>
