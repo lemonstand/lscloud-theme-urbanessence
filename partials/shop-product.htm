@@ -1,59 +1,131 @@
 	{% set on_sale = product.onSale %}
-	<div id="product-gallery" class="col-md-8">
-
-		<ul class="col-md-3 thumblist">
-			{% for image in product.images %}
-				<li>
-					<img onclick='changeImage("{{ image.thumbnail('auto', 'auto') }}")' src="{{ image.thumbnail('auto', 'auto') }}" alt="{{ product.name }}">
-				</li>
-			{% endfor %}
-			</ul>
-
-			
-			<div class="col-md-9" id="main-img">
-				<img id="big-thumb" src="{{ product.image.thumbnail('auto','auto') }}" alt="{{ product.name }}">
+	<div class="col-md-8 gallery">
+		<div class="row">
+			<div id="product-gallery" class="col-md-12">
+				<ul class="col-xs-4 col-sm-3 col-md-3 thumblist">
+					{% for image in product.images %}
+						<li>
+							<img onclick='changeImage("{{ image.thumbnail('auto', 'auto') }}")' src="{{ image.thumbnail('auto', 'auto') }}" alt="{{ product.name }}">
+						</li>
+					{% endfor %}
+				</ul>
+				<div class="col-xs-8 col-sm-9 col-md-9" id="main-img">
+					<img id="big-thumb" src="{{ product.image.thumbnail('auto','auto') }}" alt="{{ product.name }}">
+				</div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{% if theme.socialToggle %}
+					{{ partial('shop-social-share') }}
+				{% endif %}
+			</div>
+		</div>
+
 
 	</div>
 
+
 	<div id="product-detail" class="col-md-4">
-	  <h2>{{ product.name }}</h2> 
+	  <h2>{{ product.name }}</h2>
 	  <h3>{{ product.price|currency }}</h3>
 	  	{% if on_sale %}
 				<small class="previous-price">{{ product.fullPrice|currency }}</small>
-			{% endif %} 
-	  <p>{{product.description|unescape}}</p>
+			{% endif %}
+	  	<p>{{product.description|unescape}}</p>
+			<hr />
+
+			{% if theme.ratingToggle %}
+				<div class="product-rating-container">
+					<!-- product ratings -->
+					{% set product_rating = product.rating() %}
+					<p style="display: inline;">
+						{% if product_rating.total_reviews %}
+							<span style="margin-right: -4px">
+								{% for i in range(1, product_rating.average_int) %}
+									&starf;
+								{% endfor %}
+							</span>
+							{% if product_rating.average_int != 5 %}
+								{% for i in range(1, 5 - product_rating.average_int) %}
+									&star;
+								{% endfor %}
+							{% endif %}
+							({{ product_rating.total_reviews }})&nbsp;
+							<!-- View Review -->
+							<br /><a data-toggle="modal" data-target="#viewModal" href="#">View Review(s)</a>
+							&nbsp;&nbsp;|&nbsp;&nbsp;
+						{% else %}
+							&star;&star;&star;&star;&star;
+							(no reviews yet)
+						{% endif %}
+						<!-- Write Review -->
+						<a data-toggle="modal" data-target="#writeModal" href="#">Write Review</a>
+					</p>
+
+					{{ partial('shop-product-review-view') }}
+				</div>
+			{% endif %}
+
+			{% if product.enabled %}
+				{{ partial('shop-product-options') }}
+
+				{% if not product.isOutOfStock() or product.allow_preorder %}
+		    	<input type="hidden" name="productId" value="{{ product.id }}"/>
+		      <div class="add-cart-holder form-group">
+		        {{ flash() }}
+		        <div class="quantity-selector">
+		        	<h4>Quantity</h4>
+							<div class="row">
+								<div class="col-sm-3">
+									<input class="form-control quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>
+								</div>
+			          <div class="col-sm-9">
+									<a class="btn btn-important btn-add-cart" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product, #navbar-totals=shop-minicart-totals">Add to Cart </a>
+								</div>
+							</div>
+							<div class="stock-level">{{ product.in_stock_amount }} available</div>
+
+						</div>
+		      </div>
+
+		    {% else %}
+		      <div class="not-available">
+		        <h5>This product is temporarily unavailable</h5>
+		      <div>
+		    {% endif %}
+
+			{% endif %}
+
 	  	{{ partial('shop-product-attributes') }}
 
 		{% if product.enabled %}
-      
-      {{ partial('shop-product-options') }}
+
+      {{ partial('shop-product-bulk-pricing') }}
+
       {{ partial('shop-product-extras') }}
-      
-    {% if not product.isOutOfStock() or product.allow_preorder %}
-      <input type="hidden" name="productId" value="{{ product.id }}"/>
-	      <div class="add-cart-holder form-group">
-	        {{ flash() }}
-	        <div class="quantity-selector">
-	        	<h4>Quantity</h4>
-	          <input class="form-control quantity" type="text" value="{{ quantity|default("1") }}" name="quantity"/>
-	        </div>
-	        <a class="btn btn-important btn-add-cart" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product, #navbar-totals=shop-minicart-totals">Add to Cart </a>
-	      </div>
-	      
-	    {% else %}
-	      <div class="not-available">
-	        <h5>This product is temporarily unavailable</h5>
-	      <div>
-	    {% endif %}
-	    
+
+
+
 	  {% else %}
 	    <div class="not-available">
 	      <h5>This product is not available</h5>
 	    <div>
   {% endif %}
 
-	
+
+	</div>
+
+	<div id="cross-sell-items" class="col-sm-12">
+		<h3>Related items</h3>
+		<ul>
+			{% for product in product.crosssells %}
+	        {{ partial('shop-product-related-item', {'product':product}) }}
+	    {% endfor %}
+	    {% for product in product.upsells %}
+	        {{ partial('shop-product-related-item', {'product':product}) }}
+	    {% endfor %}
+		</ul>
 	</div>
 
 
@@ -62,12 +134,3 @@
 	  document.getElementById("big-thumb").src=a;
 	};
 </script>
-
-
-
-
-
-
-
-
-

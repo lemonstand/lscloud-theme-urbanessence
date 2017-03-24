@@ -39,7 +39,13 @@
 				{% endif %}
 			</div>
 			<div class="col-sm-3" id="item-middle">
-				<p class="col-sm-9">{{ item.total()|currency }}</p>
+				<p class="col-sm-9"> 
+				{% set overall_total = item.product.base_price * item.quantity %}
+				{% if overall_total > item.total() %}
+					<del>{{ overall_total|currency }}</del><br>	
+				{% endif %}
+				{{ item.total()|currency }}
+				</p>
 
 				{% if edit_cart %}
 					<a class="col-sm-3" id="item-close" href="#close" 

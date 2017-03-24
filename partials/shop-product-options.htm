@@ -1,4 +1,5 @@
 {% if product.options.count %}
+  <h4>Product Options</h4>
   {% for index, option in product.options %}
     <div class="product-options">
       <label class="title" for="{{ 'option-'~index }}">{{ option.name }}</label><br>

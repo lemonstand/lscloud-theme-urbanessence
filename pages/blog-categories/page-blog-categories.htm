@@ -1,0 +1,45 @@
+---
+action: 'cmscontent:archive'
+template: template-1
+protocol: all
+published: true
+name: Blog Categories
+url: /archives/:type/:category
+---
+
+
+  <div class="row content">
+    {% if archives | length > 0 %}
+      {% paginate archives by 5 %}
+      <div class="col-md-2 cat-list">
+        {{ partial('blog-categories') }}
+      </div>
+      <div class="col-md-10">
+        <div class="row blog">
+          <h2>{{ category }}</h2>
+          {% for post in pagination.items %}
+            <div>
+              <h3><a href="/blog/{{ post.guid }}">{{ post.title }}</a></h3>
+              <div>{{ post.excerpt | unescape }}</div>
+              <div><a href="/blog/{{ post.guid }}">Read More</a></div>
+            </div>
+            <hr/>
+          {% endfor %}
+
+          <div class="pagination">
+            <div class="pagination-holder">
+              {% navigation %}
+            </div>
+          </div>
+          {% endpaginate %}
+        </div>
+      </div>
+    {% else %}
+      <article>
+        <header>
+            <h4>Not found</h4>
+            <p>No {{ type }} posts found in category: {{ category }} {{ categoryID }}</p>
+        </header>
+      </article>
+    {% endif %}
+  </div>

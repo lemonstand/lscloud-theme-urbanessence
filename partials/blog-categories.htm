@@ -1,0 +1,9 @@
+{% set blogCategories = [] %}
+{% for post in cmsContent('blog')|extended_sort('published_on', false) %}
+  {% for category in post.categories %}
+      {% if category.name not in blogCategories %}
+        <a href="/blog/archives/{{ category.slug }}" class="btn btn-default">{{ category.name }}</a>
+        {% set blogCategories = blogCategories|merge([category.name]) %}
+      {% endif %}
+  {% endfor %}
+{% endfor %}
