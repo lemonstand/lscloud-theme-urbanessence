@@ -1,22 +1,28 @@
 ---
 action: 'cmscontent:page'
-template: 'inner'
+template: 'template-1'
 protocol: all
 published: true
 name: 'Basic Page'
 url: '/page/:slug'
 ---
-<section class="main">
-	<div class="container box">
-		<div class="row">
-	        <div class ="col-lg-4 col-md-3 col-sm-12 columns">
-	            <img src="{{ featured_image.thumbnail(200, 'auto')|default('http://placehold.it/1000x365') }}" alt="{{ featured_image.alt }}"/>
-	        </div>
-	        <div class ="col-lg-8 col-md-9 col-sm-12 columns">
-	        	<h1>{{post.title}}</h1>
-	            <div class="basic-page-excerpt" style="margin-bottom: 20px">{{ post.excerpt | unescape }}</div>
-	            <div class="basic-page-body">{{ post.body | unescape }}</div>
-	        </div>
+<div class="row content">
+	{% if featured_image %}
+		<div class="col-md-4">
+			<img src="{{ featured_image.thumbnail(200, 'auto')|default('http://placehold.it/1000x365') }}" alt="{{ featured_image.alt }}"/>
 		</div>
+	{% endif %}
+	<div class="{% if featured_image %} col-md-8 {% else %} col-sm-12 %} {% endif %}">
+		<h3>{{post.title}}</h3>
+		{% if post.excerpt %}
+			<p>
+				{{ post.excerpt | unescape }}
+			</p>
+		{% endif %}
+		<p>
+			{{ post.body | unescape }}
+		</p>
+
 	</div>
-</section>
+
+</div>
