@@ -2,7 +2,17 @@
   "name": "urban-essence",
   "version": "1.0.0",
   "description": "Urban Essence is a high-fashion inspired, minimal theme. It is fully customizable and can be used as a base to create your beautiful and minimal store. Use Urban Essence to show off your latest fashions.",
-  "main": "index.js",
+  "lemonstand" : {
+    "code":"urban-essence",
+    "type": "theme",
+    "options": "options.json",
+    "demo" : "https//urban-essence.lemonstand.com",
+    "screenshot" : {
+      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-urban-essence/master/resources/screenshots/tiny-square.png",
+      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-urban-essence/master/resources/screenshots/large-square.png"
+    }
+  },   
+  "main": "README.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
