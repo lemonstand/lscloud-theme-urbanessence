@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
     <link rel="icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
 
-    <link rel="stylesheet" type="text/css" href="/cms/core.css">
+    <link rel="stylesheet" type="text/css" href="/cms/lemonstand.css">
 
     <!-- <link rel="stylesheet" type="text/css" href="{{ 'fonts/foundation/foundation-icons.css'|theme_resource }}"> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type="text/css">
@@ -21,6 +21,10 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{'css/combined.min.css'|theme_resource }}">
     <link rel="stylesheet" href="{{ 'css/custom.css'|theme_resource }}">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{ 'js/jquery-migrate-1.2.1.js'|theme_resource }}"></script>
+    <script src="/cms/lemonstand.js"></script>
 
     <!-- THEME CUSTOMiZATION OPTIONS -->
     <style type="text/css">
@@ -39,21 +43,27 @@
         .main-footer{
             background: {{ theme.mainFooterColor }};
         }
-        .btn-default{
+        .btn-default 
+        {
             border-color: {{ theme.defaultButtonBorderColor }} ;
         }
         .btn-default:hover{
             background:{{ theme.defaultButtonHoverColor }}
         }
-        .btn-important{
+        .btn-important,
+        .ls-card-form .submit-button,
+        .ls-card-form .delete-button {
             background: {{ theme.importantButtonColor }};
         }
-        .brn-important:hover{
+        .brn-important:hover, 
+        .ls-card-form .submit-button:hover,
+        .ls-card-form .delete-button:hover {
             background:{{ theme.importantButtonHoverColor }};
         }
-        i{
+        i {
             color: {{ theme.iconColor }};
         }
+
         #intro{
             background: url( {{ theme.introMainImage.thumbnail('auto','auto') }} )no-repeat top center;
               -webkit-background-size: cover;
