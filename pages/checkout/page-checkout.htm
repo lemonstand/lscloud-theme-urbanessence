@@ -10,6 +10,9 @@ url: /checkout
 	<div class="container">
 		<div id="checkout-page" class="row">
 			{{ partial('shop-checkout') }}
-		</div>	
+		</div>
+        {% if hasFeature('saved-cards') %}
+            {{ code_block('script') }}
+        {% endif %}
 	</div>
 </section>

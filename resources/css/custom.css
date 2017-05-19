@@ -162,3 +162,106 @@
 #cross-sell-items .short-description {
   text-align: center;
 }
+
+/* Card Form */
+
+.ls-card-form {
+    width: 100%;
+}
+.card-form-expiry-outer label {
+    display: inherit;
+}
+.card-table {
+    font-size: 15px;
+    background-color: #EEEEEE;
+}
+.card-table th {
+    padding: 10px;
+    color: #777777;
+}
+.card-table a,
+.card-table a:hover,
+.card-table a:focus {
+    text-decoration: underline;
+}
+.card-form-close {
+    display: none;
+}
+.card-form-open {
+    display: block;
+}
+.ls-card-form .submit-button,
+.ls-card-form .delete-button {
+    color: #FFFFFF;
+    background-color: inherit;
+    border-color: #093D55;
+    border: 0 solid black;
+    border-radius: 0;
+    margin-top: 5px;
+    font-family: inherit;
+    letter-spacing: .1em;
+    font-weight: inherit;
+    padding: 6px 12px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.ls-card-form .submit-button:hover,
+.ls-card-form .delete-button:hover {
+  background-color: black;
+  color: white;
+  border: none;
+  text-decoration: none;
+}
+.ls-card-form .card-form-input {
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    font-family: inherit;
+    box-shadow: none;
+    border-radius: 0;
+    color: #555;
+    font-weight: 300;
+}
+.ls-card-form .card-form-input:focus {
+    border-color: black;
+    background-color: inherit;
+}
+.ls-card-form .card-form-input::-webkit-input-placeholder {
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+.ls-card-form .card-form-input:-moz-placeholder {
+    /* Firefox 18- */
+    
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+.ls-card-form .card-form-input::-moz-placeholder {
+    /* Firefox 19+ */
+    
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+.ls-card-form .card-form-input:-ms-input-placeholder {
+    font-family: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+.form-row .btn {
+    float: left;
+}
+.ls-card-form .error-highlight,
+.ls-card-form .error-highlight:focus {
+    border-color: #D34246 !important;
+}
+
+.ls-card-form .valid-highlight,
+.ls-card-form .valid-highlight:focus {
+    border-color: #3DE000 !important;
+}
+#profile-saved-cards h3 {
+  margin-top: 0px;
+}
