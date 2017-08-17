@@ -2,6 +2,7 @@
   "name": "Urban Essence",
   "version": "1.0.0",
   "description": "Urban Essence is a high-fashion inspired, minimal theme. By default it uses a neutral color palette, and puts the emphasis on large product imagery, particularly in the portrait format. Use Urban Essence to show off your latest fashion and accessories.",
+  "excerpt": "Urban Essence is a responsive high-fashion inspired theme that's minimal and uses portrait format product images.",
   "lemonstand" : {
     "code":"urban-essence",
     "type": "theme",
