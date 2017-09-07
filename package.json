@@ -7,10 +7,11 @@
     "code":"urban-essence",
     "type": "theme",
     "options": "options.json",
-    "demo" : "https://urban-essence.lemonstand.com",
+    "demo": "https://urban-essence.lemonstand.com",
     "screenshots" : {
-      "small":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-urban-essence/master/resources/screenshots/tiny-square.png",
-      "large":"https://raw.githubusercontent.com/lemonstand/lscloud-theme-urban-essence/master/resources/screenshots/large-square.png"
+      "small": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-urban-essence/master/resources/screenshots/tiny-square.png",
+      "large": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-urban-essence/master/resources/screenshots/large-square.png",
+      "full": "https://raw.githubusercontent.com/lemonstand/lscloud-theme-urban-essence/master/resources/screenshots/full-size.png"
     }
   },
   "main": "README.md",
